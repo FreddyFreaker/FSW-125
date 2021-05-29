@@ -14,6 +14,7 @@ let bounties = [
         Worth: 5000,
         Type: "Sith",
         _id: uuidv4()
+        
     },
     {
         Name: "Quigon",
@@ -30,6 +31,7 @@ let bounties = [
         Worth: 20000,
         Type: "Jedi",
         _id: uuidv4()
+        
     },
     {
         Name: "Luke",
@@ -38,19 +40,23 @@ let bounties = [
         Worth: 500000,
         Type: "Jedi",
         _id: uuidv4()
+        
     },
 ]
 
+
+
 bountyRouter.post('/', (req,res) => {
     const newBounty = req.body;
-    newBounty._id = uuidv4();
-    bounties.push(newBounty);
+    newBounty._id = uuidv4()
+    bounties.push(newBounty)
 
     res.send('New bounty successfully added')
+    console.log(bounties)
 })
 
 bountyRouter.get('/', (req,res) => {
     res.send(bounties)
 })
 
- module.exports = bountyRouter
+ module.exports = bountyRouter;
