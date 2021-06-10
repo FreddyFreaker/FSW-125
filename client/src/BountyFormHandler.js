@@ -1,12 +1,12 @@
 /* eslint-disable no-undef */
 import {useState} from 'react'
 
-function AddBountyForm({addBounty}){
+function BountyFormHandler({submit,btnText,FirstName,LastName,Worth,Type,_id}){
         const initialInputs = {
-            FirstName: '',
-            LastName: '',
-            Worth: '',
-            Type: ''
+            FirstName: FirstName || '',
+            LastName: LastName || '',
+            Worth: Worth || '',
+            Type: Type || ''
         };
         const [inputs, setInputs] = useState(initialInputs);
 
@@ -16,8 +16,8 @@ function AddBountyForm({addBounty}){
         }
 
         const handleSubmit = (e) => {
-            e.preventDefault();
-            addBounty(inputs)
+           // e.preventDefault();
+            submit(inputs, _id)
             setInputs(initialInputs)
         }
 
@@ -28,7 +28,7 @@ function AddBountyForm({addBounty}){
             <input
             type = 'text'
             name= 'FirstName'
-            value= {inputs.Name}
+            value= {inputs.FirstName}
             onChange={handleChange}
             placeholder= 'FirstName'
             />
@@ -56,7 +56,7 @@ function AddBountyForm({addBounty}){
             onChange={handleChange}
             placeholder='Worth'
             />
-            <button>Add Bounty</button>
+            <button>{btnText}</button>
         </form>
 
 
@@ -64,4 +64,4 @@ function AddBountyForm({addBounty}){
 }
 
 
-export default AddBountyForm;
+export default BountyFormHandler;

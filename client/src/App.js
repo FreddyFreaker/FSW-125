@@ -7,7 +7,7 @@ import axios from 'axios'
 // eslint-disable-next-line
 import {useState, useEffect} from 'react'
 import Bounty from './Bounty'
-import AddBountyForm from './AddBountyForm'
+import BountyFormHandler from './BountyFormHandler'
 
 
 function App () {
@@ -27,23 +27,40 @@ function App () {
       .catch(err => console.log(err))
   }
   
-  const deleteBounty = (bountyID) => {
+  const deleteBounty = (bountyId) => {
     axios.delete(`/bounties/${bountyId}`)
-      .then(res => console.log(res))
+      .then(res => {
+          setBounties(prevBounties => prevBounties.filter(bounty => bounty._id !== bountyId))
+      })
       .catch(err => console.log(err))
   }
 
+  const editBounty = (updates, bountyId) => {
+      axios.put(`/bounties/${bountyId}`,updates)
+        .then(res => {
+          setBounties(prevBounties => prevBounties.map(bounty => bounty._id !== bountyId ? bounty : res.data ))
+        })
+        .catch(err => console.log(err))
+  }
 
   useEffect(() => {getBounties()}, [])
 
 
-  const bountyList = bounties.map(bounty => <Bounty {...bounty} deleteBounty={deleteBounty}  key={bounty._id}/>)
+  const bountyList = 
+    bounties.map(bounty => 
+    <Bounty 
+    {...bounty} 
+    deleteBounty={deleteBounty}  
+    editBounty={editBounty}
+    key={bounty._id}/>)
 
 
 
   return (
     <div className="bounties-container">
-          <AddBountyForm addBounty={addBounty}/>
+          <BountyFormHandler 
+          btnText= 'Add Bounty'
+          submit={addBounty}/>
           {bountyList}
     </div>
   )
