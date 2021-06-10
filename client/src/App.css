@@ -1,0 +1,15 @@
+h1,p{
+    margin: 5px
+}
+
+.bounty-container{
+    display: flex;
+    flex-direction: column;
+    margin: 0 32px;
+}
+
+.bounty{
+    border: 1px solid #333;
+    padding: 10px;
+    margin: 5px;
+}

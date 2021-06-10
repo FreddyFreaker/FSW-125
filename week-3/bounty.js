@@ -8,8 +8,8 @@ const {v4:uuidv4} = require('uuid')
 
 let bounties = [
     {
-        Name: "Darth Quan",
-        lastName: "Grungo",
+        FirstName: "Darth Quan",
+        LastName: "Grungo",
         Living: true,
         Worth: 5000,
         Type: "Sith",
@@ -17,16 +17,16 @@ let bounties = [
         
     },
     {
-        Name: "Quigon",
-        lastName: "Jin",
+        FirstName: "Quigon",
+        LastName: "Jin",
         Living: false,
         Worth: 10000,
         Type: "Jedi",
         _id: uuidv4()
     },
     {
-        Name: "Han",
-        lastName: "Solo",
+        FirstName: "Han",
+        LastName: "Solo",
         Living: false,
         Worth: 20000,
         Type: "Jedi",
@@ -34,8 +34,8 @@ let bounties = [
         
     },
     {
-        Name: "Luke",
-        lastName: "Skywalker",
+        FirstName: "Luke",
+        LastName: "Skywalker",
         Living: false,
         Worth: 500000,
         Type: "Jedi",

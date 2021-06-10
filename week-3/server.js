@@ -3,7 +3,7 @@ const bountyRouter = require('./bounty')
 const app = express()
 const {v4:uuidv4} = require('uuid')
 
-const PORT = 3000
+const PORT = 9000
 
 app.use(express.json())
 
