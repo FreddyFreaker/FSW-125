@@ -51,6 +51,7 @@ bountyRouter.post('/', (req,res) => {
     newBounty._id = uuidv4()
     bounties.push(newBounty)
 
+    
     res.send('New bounty successfully added')
     console.log(bounties)
 })
